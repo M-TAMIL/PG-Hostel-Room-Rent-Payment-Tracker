@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.renteasy.RentEasyApplicationTests" time="9.969" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\tamil\OneDrive\Documents\Desktop\PG Hostel Room Rent Payment Tracker\target\test-classes;C:\Users\tamil\OneDrive\Documents\Desktop\PG Hostel Room Rent Payment Tracker\target\classes;C:\Users\tamil\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.3.4\spring-boot-starter-web-3.3.4.jar;C:\Users\tamil\.m2\repository\org\springframework\boot\spring-boot-starter\3.3.4\spring-boot-starter-3.3.4.jar;C:\Users\tamil\.m2\repository\org\springframework\boot\spring-boot\3.3.4\spring-boot-3.3.4.jar;C:\Users\tamil\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.3.4\spring-boot-autoconfigure-3.3.4.jar;C:\Users\tamil\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.3.4\spring-boot-starter-logging-3.3.4.jar;C:\Users\tamil\.m2\repository\ch\qos\logback\logback-classic\1.5.8\logback-classic-1.5.8.jar;C:\Users\tamil\.m2\repository\ch\qos\logback\logback-core\1.5.8\logback-core-1.5.8.jar;C:\Users\tamil\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.23.1\log4j-to-slf4j-2.23.1.jar;C:\Users\tamil\.m2\repository\org\apache\logging\log4j\log4j-api\2.23.1\log4j-api-2.23.1.jar;C:\Users\tamil\.m2\repository\org\slf4j\jul-to-slf4j\2.0.16\jul-to-slf4j-2.0.16.jar;C:\Users\tamil\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\tamil\.m2\repository\org\yaml\snakeyaml\2.2\snakeyaml-2.2.jar;C:\Users\tamil\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.3.4\spring-boot-starter-json-3.3.4.jar;C:\Users\tamil\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.17.2\jackson-databind-2.17.2.jar;C:\Users\tamil\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.17.2\jackson-annotations-2.17.2.jar;C:\Users\tamil\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.17.2\jackson-core-2.17.2.jar;C:\Users\tamil\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.17.2\jackson-datatype-jdk8-2.17.2.jar;C:\Users\tamil\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.17.2\jackson-datatype-jsr310-2.17.2.jar;C:\Users\tamil\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.17.2\jackson-module-parameter-names-2.17.2.jar;C:\Users\tamil\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.3.4\spring-boot-starter-tomcat-3.3.4.jar;C:\Users\tamil\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.30\tomcat-embed-core-10.1.30.jar;C:\Users\tamil\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.30\tomcat-embed-websocket-10.1.30.jar;C:\Users\tamil\.m2\repository\org\springframework\spring-web\6.1.13\spring-web-6.1.13.jar;C:\Users\tamil\.m2\repository\org\springframework\spring-beans\6.1.13\spring-beans-6.1.13.jar;C:\Users\tamil\.m2\repository\io\micrometer\micrometer-observation\1.13.4\micrometer-observation-1.13.4.jar;C:\Users\tamil\.m2\repository\io\micrometer\micrometer-commons\1.13.4\micrometer-commons-1.13.4.jar;C:\Users\tamil\.m2\repository\org\springframework\spring-webmvc\6.1.13\spring-webmvc-6.1.13.jar;C:\Users\tamil\.m2\repository\org\springframework\spring-aop\6.1.13\spring-aop-6.1.13.jar;C:\Users\tamil\.m2\repository\org\springframework\spring-context\6.1.13\spring-context-6.1.13.jar;C:\Users\tamil\.m2\repository\org\springframework\spring-expression\6.1.13\spring-expression-6.1.13.jar;C:\Users\tamil\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.3.4\spring-boot-starter-data-jpa-3.3.4.jar;C:\Users\tamil\.m2\repository\org\springframework\boot\spring-boot-starter-aop\3.3.4\spring-boot-starter-aop-3.3.4.jar;C:\Users\tamil\.m2\repository\org\aspectj\aspectjweaver\1.9.22.1\aspectjweaver-1.9.22.1.jar;C:\Users\tamil\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.3.4\spring-boot-starter-jdbc-3.3.4.jar;C:\Users\tamil\.m2\repository\com\zaxxer\HikariCP\5.1.0\HikariCP-5.1.0.jar;C:\Users\tamil\.m2\repository\org\springframework\spring-jdbc\6.1.13\spring-jdbc-6.1.13.jar;C:\Users\tamil\.m2\repository\org\hibernate\orm\hibernate-core\6.5.3.Final\hibernate-core-6.5.3.Final.jar;C:\Users\tamil\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\tamil\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\tamil\.m2\repository\org\jboss\logging\jboss-logging\3.5.3.Final\jboss-logging-3.5.3.Final.jar;C:\Users\tamil\.m2\repository\org\hibernate\common\hibernate-commons-annotations\6.0.6.Final\hibernate-commons-annotations-6.0.6.Final.jar;C:\Users\tamil\.m2\repository\io\smallrye\jandex\3.1.2\jandex-3.1.2.jar;C:\Users\tamil\.m2\repository\com\fasterxml\classmate\1.7.0\classmate-1.7.0.jar;C:\Users\tamil\.m2\repository\net\bytebuddy\byte-buddy\1.14.19\byte-buddy-1.14.19.jar;C:\Users\tamil\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.5\jaxb-runtime-4.0.5.jar;C:\Users\tamil\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.5\jaxb-core-4.0.5.jar;C:\Users\tamil\.m2\repository\org\eclipse\angus\angus-activation\2.0.2\angus-activation-2.0.2.jar;C:\Users\tamil\.m2\repository\org\glassfish\jaxb\txw2\4.0.5\txw2-4.0.5.jar;C:\Users\tamil\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\tamil\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\tamil\.m2\repository\org\antlr\antlr4-runtime\4.13.0\antlr4-runtime-4.13.0.jar;C:\Users\tamil\.m2\repository\org\springframework\data\spring-data-jpa\3.3.4\spring-data-jpa-3.3.4.jar;C:\Users\tamil\.m2\repository\org\springframework\data\spring-data-commons\3.3.4\spring-data-commons-3.3.4.jar;C:\Users\tamil\.m2\repository\org\springframework\spring-orm\6.1.13\spring-orm-6.1.13.jar;C:\Users\tamil\.m2\repository\org\springframework\spring-tx\6.1.13\spring-tx-6.1.13.jar;C:\Users\tamil\.m2\repository\org\slf4j\slf4j-api\2.0.16\slf4j-api-2.0.16.jar;C:\Users\tamil\.m2\repository\org\springframework\spring-aspects\6.1.13\spring-aspects-6.1.13.jar;C:\Users\tamil\.m2\repository\org\springframework\boot\spring-boot-starter-validation\3.3.4\spring-boot-starter-validation-3.3.4.jar;C:\Users\tamil\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.30\tomcat-embed-el-10.1.30.jar;C:\Users\tamil\.m2\repository\org\hibernate\validator\hibernate-validator\8.0.1.Final\hibernate-validator-8.0.1.Final.jar;C:\Users\tamil\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;C:\Users\tamil\.m2\repository\com\h2database\h2\2.2.224\h2-2.2.224.jar;C:\Users\tamil\.m2\repository\com\mysql\mysql-connector-j\8.3.0\mysql-connector-j-8.3.0.jar;C:\Users\tamil\.m2\repository\org\springframework\boot\spring-boot-starter-test\3.3.4\spring-boot-starter-test-3.3.4.jar;C:\Users\tamil\.m2\repository\org\springframework\boot\spring-boot-test\3.3.4\spring-boot-test-3.3.4.jar;C:\Users\tamil\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.3.4\spring-boot-test-autoconfigure-3.3.4.jar;C:\Users\tamil\.m2\repository\com\jayway\jsonpath\json-path\2.9.0\json-path-2.9.0.jar;C:\Users\tamil\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;C:\Users\tamil\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar;C:\Users\tamil\.m2\repository\net\minidev\json-smart\2.5.1\json-smart-2.5.1.jar;C:\Users\tamil\.m2\repository\net\minidev\accessors-smart\2.5.1\accessors-smart-2.5.1.jar;C:\Users\tamil\.m2\repository\org\ow2\asm\asm\9.6\asm-9.6.jar;C:\Users\tamil\.m2\repository\org\assertj\assertj-core\3.25.3\assertj-core-3.25.3.jar;C:\Users\tamil\.m2\repository\org\awaitility\awaitility\4.2.2\awaitility-4.2.2.jar;C:\Users\tamil\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\tamil\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.3\junit-jupiter-5.10.3.jar;C:\Users\tamil\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.3\junit-jupiter-api-5.10.3.jar;C:\Users\tamil\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\tamil\.m2\repository\org\junit\platform\junit-platform-commons\1.10.3\junit-platform-commons-1.10.3.jar;C:\Users\tamil\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\tamil\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.3\junit-jupiter-params-5.10.3.jar;C:\Users\tamil\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.3\junit-jupiter-engine-5.10.3.jar;C:\Users\tamil\.m2\repository\org\junit\platform\junit-platform-engine\1.10.3\junit-platform-engine-1.10.3.jar;C:\Users\tamil\.m2\repository\org\mockito\mockito-core\5.11.0\mockito-core-5.11.0.jar;C:\Users\tamil\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.19\byte-buddy-agent-1.14.19.jar;C:\Users\tamil\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\tamil\.m2\repository\org\mockito\mockito-junit-jupiter\5.11.0\mockito-junit-jupiter-5.11.0.jar;C:\Users\tamil\.m2\repository\org\skyscreamer\jsonassert\1.5.3\jsonassert-1.5.3.jar;C:\Users\tamil\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\tamil\.m2\repository\org\springframework\spring-core\6.1.13\spring-core-6.1.13.jar;C:\Users\tamil\.m2\repository\org\springframework\spring-jcl\6.1.13\spring-jcl-6.1.13.jar;C:\Users\tamil\.m2\repository\org\springframework\spring-test\6.1.13\spring-test-6.1.13.jar;C:\Users\tamil\.m2\repository\org\xmlunit\xmlunit-core\2.9.1\xmlunit-core-2.9.1.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Asia/Calcutta"/>
+    <property name="org.jboss.logging.provider" value="slf4j"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="IN"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-21.0.10\bin"/>
+    <property name="sun.java.command" value="C:\Users\tamil\AppData\Local\Temp\surefire18248784453683406948\surefirebooter-20260928115446628_3.jar C:\Users\tamil\AppData\Local\Temp\surefire18248784453683406948 2026-09-28T11-54-46_414-jvmRun1 surefire-20260928115446628_1tmp surefire_0-20260928115446628_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\tamil\OneDrive\Documents\Desktop\PG Hostel Room Rent Payment Tracker\target\test-classes;C:\Users\tamil\OneDrive\Documents\Desktop\PG Hostel Room Rent Payment Tracker\target\classes;C:\Users\tamil\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.3.4\spring-boot-starter-web-3.3.4.jar;C:\Users\tamil\.m2\repository\org\springframework\boot\spring-boot-starter\3.3.4\spring-boot-starter-3.3.4.jar;C:\Users\tamil\.m2\repository\org\springframework\boot\spring-boot\3.3.4\spring-boot-3.3.4.jar;C:\Users\tamil\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.3.4\spring-boot-autoconfigure-3.3.4.jar;C:\Users\tamil\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.3.4\spring-boot-starter-logging-3.3.4.jar;C:\Users\tamil\.m2\repository\ch\qos\logback\logback-classic\1.5.8\logback-classic-1.5.8.jar;C:\Users\tamil\.m2\repository\ch\qos\logback\logback-core\1.5.8\logback-core-1.5.8.jar;C:\Users\tamil\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.23.1\log4j-to-slf4j-2.23.1.jar;C:\Users\tamil\.m2\repository\org\apache\logging\log4j\log4j-api\2.23.1\log4j-api-2.23.1.jar;C:\Users\tamil\.m2\repository\org\slf4j\jul-to-slf4j\2.0.16\jul-to-slf4j-2.0.16.jar;C:\Users\tamil\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\tamil\.m2\repository\org\yaml\snakeyaml\2.2\snakeyaml-2.2.jar;C:\Users\tamil\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.3.4\spring-boot-starter-json-3.3.4.jar;C:\Users\tamil\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.17.2\jackson-databind-2.17.2.jar;C:\Users\tamil\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.17.2\jackson-annotations-2.17.2.jar;C:\Users\tamil\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.17.2\jackson-core-2.17.2.jar;C:\Users\tamil\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.17.2\jackson-datatype-jdk8-2.17.2.jar;C:\Users\tamil\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.17.2\jackson-datatype-jsr310-2.17.2.jar;C:\Users\tamil\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.17.2\jackson-module-parameter-names-2.17.2.jar;C:\Users\tamil\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.3.4\spring-boot-starter-tomcat-3.3.4.jar;C:\Users\tamil\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.30\tomcat-embed-core-10.1.30.jar;C:\Users\tamil\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.30\tomcat-embed-websocket-10.1.30.jar;C:\Users\tamil\.m2\repository\org\springframework\spring-web\6.1.13\spring-web-6.1.13.jar;C:\Users\tamil\.m2\repository\org\springframework\spring-beans\6.1.13\spring-beans-6.1.13.jar;C:\Users\tamil\.m2\repository\io\micrometer\micrometer-observation\1.13.4\micrometer-observation-1.13.4.jar;C:\Users\tamil\.m2\repository\io\micrometer\micrometer-commons\1.13.4\micrometer-commons-1.13.4.jar;C:\Users\tamil\.m2\repository\org\springframework\spring-webmvc\6.1.13\spring-webmvc-6.1.13.jar;C:\Users\tamil\.m2\repository\org\springframework\spring-aop\6.1.13\spring-aop-6.1.13.jar;C:\Users\tamil\.m2\repository\org\springframework\spring-context\6.1.13\spring-context-6.1.13.jar;C:\Users\tamil\.m2\repository\org\springframework\spring-expression\6.1.13\spring-expression-6.1.13.jar;C:\Users\tamil\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.3.4\spring-boot-starter-data-jpa-3.3.4.jar;C:\Users\tamil\.m2\repository\org\springframework\boot\spring-boot-starter-aop\3.3.4\spring-boot-starter-aop-3.3.4.jar;C:\Users\tamil\.m2\repository\org\aspectj\aspectjweaver\1.9.22.1\aspectjweaver-1.9.22.1.jar;C:\Users\tamil\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.3.4\spring-boot-starter-jdbc-3.3.4.jar;C:\Users\tamil\.m2\repository\com\zaxxer\HikariCP\5.1.0\HikariCP-5.1.0.jar;C:\Users\tamil\.m2\repository\org\springframework\spring-jdbc\6.1.13\spring-jdbc-6.1.13.jar;C:\Users\tamil\.m2\repository\org\hibernate\orm\hibernate-core\6.5.3.Final\hibernate-core-6.5.3.Final.jar;C:\Users\tamil\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\tamil\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\tamil\.m2\repository\org\jboss\logging\jboss-logging\3.5.3.Final\jboss-logging-3.5.3.Final.jar;C:\Users\tamil\.m2\repository\org\hibernate\common\hibernate-commons-annotations\6.0.6.Final\hibernate-commons-annotations-6.0.6.Final.jar;C:\Users\tamil\.m2\repository\io\smallrye\jandex\3.1.2\jandex-3.1.2.jar;C:\Users\tamil\.m2\repository\com\fasterxml\classmate\1.7.0\classmate-1.7.0.jar;C:\Users\tamil\.m2\repository\net\bytebuddy\byte-buddy\1.14.19\byte-buddy-1.14.19.jar;C:\Users\tamil\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.5\jaxb-runtime-4.0.5.jar;C:\Users\tamil\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.5\jaxb-core-4.0.5.jar;C:\Users\tamil\.m2\repository\org\eclipse\angus\angus-activation\2.0.2\angus-activation-2.0.2.jar;C:\Users\tamil\.m2\repository\org\glassfish\jaxb\txw2\4.0.5\txw2-4.0.5.jar;C:\Users\tamil\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\tamil\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\tamil\.m2\repository\org\antlr\antlr4-runtime\4.13.0\antlr4-runtime-4.13.0.jar;C:\Users\tamil\.m2\repository\org\springframework\data\spring-data-jpa\3.3.4\spring-data-jpa-3.3.4.jar;C:\Users\tamil\.m2\repository\org\springframework\data\spring-data-commons\3.3.4\spring-data-commons-3.3.4.jar;C:\Users\tamil\.m2\repository\org\springframework\spring-orm\6.1.13\spring-orm-6.1.13.jar;C:\Users\tamil\.m2\repository\org\springframework\spring-tx\6.1.13\spring-tx-6.1.13.jar;C:\Users\tamil\.m2\repository\org\slf4j\slf4j-api\2.0.16\slf4j-api-2.0.16.jar;C:\Users\tamil\.m2\repository\org\springframework\spring-aspects\6.1.13\spring-aspects-6.1.13.jar;C:\Users\tamil\.m2\repository\org\springframework\boot\spring-boot-starter-validation\3.3.4\spring-boot-starter-validation-3.3.4.jar;C:\Users\tamil\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.30\tomcat-embed-el-10.1.30.jar;C:\Users\tamil\.m2\repository\org\hibernate\validator\hibernate-validator\8.0.1.Final\hibernate-validator-8.0.1.Final.jar;C:\Users\tamil\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;C:\Users\tamil\.m2\repository\com\h2database\h2\2.2.224\h2-2.2.224.jar;C:\Users\tamil\.m2\repository\com\mysql\mysql-connector-j\8.3.0\mysql-connector-j-8.3.0.jar;C:\Users\tamil\.m2\repository\org\springframework\boot\spring-boot-starter-test\3.3.4\spring-boot-starter-test-3.3.4.jar;C:\Users\tamil\.m2\repository\org\springframework\boot\spring-boot-test\3.3.4\spring-boot-test-3.3.4.jar;C:\Users\tamil\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.3.4\spring-boot-test-autoconfigure-3.3.4.jar;C:\Users\tamil\.m2\repository\com\jayway\jsonpath\json-path\2.9.0\json-path-2.9.0.jar;C:\Users\tamil\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;C:\Users\tamil\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar;C:\Users\tamil\.m2\repository\net\minidev\json-smart\2.5.1\json-smart-2.5.1.jar;C:\Users\tamil\.m2\repository\net\minidev\accessors-smart\2.5.1\accessors-smart-2.5.1.jar;C:\Users\tamil\.m2\repository\org\ow2\asm\asm\9.6\asm-9.6.jar;C:\Users\tamil\.m2\repository\org\assertj\assertj-core\3.25.3\assertj-core-3.25.3.jar;C:\Users\tamil\.m2\repository\org\awaitility\awaitility\4.2.2\awaitility-4.2.2.jar;C:\Users\tamil\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\tamil\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.3\junit-jupiter-5.10.3.jar;C:\Users\tamil\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.3\junit-jupiter-api-5.10.3.jar;C:\Users\tamil\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\tamil\.m2\repository\org\junit\platform\junit-platform-commons\1.10.3\junit-platform-commons-1.10.3.jar;C:\Users\tamil\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\tamil\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.3\junit-jupiter-params-5.10.3.jar;C:\Users\tamil\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.3\junit-jupiter-engine-5.10.3.jar;C:\Users\tamil\.m2\repository\org\junit\platform\junit-platform-engine\1.10.3\junit-platform-engine-1.10.3.jar;C:\Users\tamil\.m2\repository\org\mockito\mockito-core\5.11.0\mockito-core-5.11.0.jar;C:\Users\tamil\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.19\byte-buddy-agent-1.14.19.jar;C:\Users\tamil\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\tamil\.m2\repository\org\mockito\mockito-junit-jupiter\5.11.0\mockito-junit-jupiter-5.11.0.jar;C:\Users\tamil\.m2\repository\org\skyscreamer\jsonassert\1.5.3\jsonassert-1.5.3.jar;C:\Users\tamil\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\tamil\.m2\repository\org\springframework\spring-core\6.1.13\spring-core-6.1.13.jar;C:\Users\tamil\.m2\repository\org\springframework\spring-jcl\6.1.13\spring-jcl-6.1.13.jar;C:\Users\tamil\.m2\repository\org\springframework\spring-test\6.1.13\spring-test-6.1.13.jar;C:\Users\tamil\.m2\repository\org\xmlunit\xmlunit-core\2.9.1\xmlunit-core-2.9.1.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\tamil"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2026-01-20"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-21.0.10"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\tamil\OneDrive\Documents\Desktop\PG Hostel Room Rent Payment Tracker"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="FILE_LOG_CHARSET" value="UTF-8"/>
+    <property name="java.awt.headless" value="true"/>
+    <property name="surefire.real.class.path" value="C:\Users\tamil\AppData\Local\Temp\surefire18248784453683406948\surefirebooter-20260928115446628_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.10+8-LTS-217"/>
+    <property name="user.name" value="tamil"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\tamil\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\tamil\AppData\Local\Temp\"/>
+    <property name="com.zaxxer.hikari.pool_number" value="1"/>
+    <property name="java.version" value="21.0.10"/>
+    <property name="user.dir" value="C:\Users\tamil\OneDrive\Documents\Desktop\PG Hostel Room Rent Payment Tracker"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="PID" value="9968"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-21.0.10\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:/Users/tamil/.gemini/antigravity-ide/bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\tamil\AppData\Local\Microsoft\WindowsApps;C:\Users\tamil\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\tamil\AppData\Local\Programs\mongosh\;C:\Users\tamil\AppData\Local\Programs\Antigravity IDE\bin;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="21.0.10+8-LTS-217"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+    <property name="LOGGED_APPLICATION_NAME" value="[RentEasy-PG-Hostel-Tracker] "/>
+  </properties>
+  <testcase name="contextLoads" classname="com.renteasy.RentEasyApplicationTests" time="0.591">
+    <system-out><![CDATA[11:54:47.933 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.renteasy.RentEasyApplicationTests]: RentEasyApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+11:54:48.124 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.renteasy.RentEasyApplication for test class com.renteasy.RentEasyApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.4)
+
+2026-09-28T11:54:48.720+05:30  INFO 9968 --- [RentEasy-PG-Hostel-Tracker] [           main] com.renteasy.RentEasyApplicationTests    : Starting RentEasyApplicationTests using Java 21.0.10 with PID 9968 (started by tamil in C:\Users\tamil\OneDrive\Documents\Desktop\PG Hostel Room Rent Payment Tracker)
+2026-09-28T11:54:48.722+05:30  INFO 9968 --- [RentEasy-PG-Hostel-Tracker] [           main] com.renteasy.RentEasyApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2026-09-28T11:54:49.781+05:30  INFO 9968 --- [RentEasy-PG-Hostel-Tracker] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-28T11:54:49.867+05:30  INFO 9968 --- [RentEasy-PG-Hostel-Tracker] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75 ms. Found 3 JPA repository interfaces.
+2026-09-28T11:54:50.385+05:30  INFO 9968 --- [RentEasy-PG-Hostel-Tracker] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-09-28T11:54:50.495+05:30  INFO 9968 --- [RentEasy-PG-Hostel-Tracker] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-09-28T11:54:50.559+05:30  INFO 9968 --- [RentEasy-PG-Hostel-Tracker] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-09-28T11:54:51.403+05:30  INFO 9968 --- [RentEasy-PG-Hostel-Tracker] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-28T11:54:51.488+05:30  INFO 9968 --- [RentEasy-PG-Hostel-Tracker] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-09-28T11:54:51.831+05:30  INFO 9968 --- [RentEasy-PG-Hostel-Tracker] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:renteasydb user=SA
+2026-09-28T11:54:51.833+05:30  INFO 9968 --- [RentEasy-PG-Hostel-Tracker] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-09-28T11:54:51.901+05:30  WARN 9968 --- [RentEasy-PG-Hostel-Tracker] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-09-28T11:54:53.402+05:30  INFO 9968 --- [RentEasy-PG-Hostel-Tracker] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    create table rent_payments (
+        id bigint generated by default as identity,
+        amount float(53) not null,
+        notes varchar(255),
+        payment_date date not null,
+        payment_mode enum ('BANK_TRANSFER','CASH','CHEQUE','UPI') not null,
+        payment_month varchar(7) not null,
+        receipt_number varchar(50),
+        transaction_reference varchar(100),
+        tenant_id bigint not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table rooms (
+        id bigint generated by default as identity,
+        capacity integer not null check (capacity>=1),
+        current_occupancy integer not null check (current_occupancy>=0),
+        is_occupied boolean not null,
+        monthly_rent float(53) not null,
+        room_number varchar(50) not null,
+        room_type enum ('DELUXE','DOUBLE','SINGLE','TRIPLE') not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table tenants (
+        id bigint generated by default as identity,
+        email varchar(100),
+        full_name varchar(100) not null,
+        monthly_rent float(53) not null,
+        move_in_date date not null,
+        move_out_date date,
+        phone varchar(20) not null,
+        security_deposit float(53),
+        status enum ('ACTIVE','VACATED') not null,
+        room_id bigint,
+        primary key (id)
+    )
+Hibernate: 
+    alter table if exists rent_payments 
+       drop constraint if exists UKpv7ws8u6bniaj069exk106ffu
+Hibernate: 
+    alter table if exists rent_payments 
+       add constraint UKpv7ws8u6bniaj069exk106ffu unique (tenant_id, payment_month)
+Hibernate: 
+    alter table if exists rent_payments 
+       drop constraint if exists UKf9gv66wd9ib5t0ei2on0dnb63
+Hibernate: 
+    alter table if exists rent_payments 
+       add constraint UKf9gv66wd9ib5t0ei2on0dnb63 unique (receipt_number)
+Hibernate: 
+    alter table if exists rooms 
+       drop constraint if exists UK7ljglxlj90ln3lbas4kl983m2
+Hibernate: 
+    alter table if exists rooms 
+       add constraint UK7ljglxlj90ln3lbas4kl983m2 unique (room_number)
+Hibernate: 
+    alter table if exists rent_payments 
+       add constraint FKjuhiygpeaxmmn9lw36cb2v2oy 
+       foreign key (tenant_id) 
+       references tenants
+Hibernate: 
+    alter table if exists tenants 
+       add constraint FKbdsaof6xvdeqj3gqe86elj6i6 
+       foreign key (room_id) 
+       references rooms
+2026-09-28T11:54:53.493+05:30  INFO 9968 --- [RentEasy-PG-Hostel-Tracker] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-28T11:54:54.274+05:30  INFO 9968 --- [RentEasy-PG-Hostel-Tracker] [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-09-28T11:54:55.811+05:30  WARN 9968 --- [RentEasy-PG-Hostel-Tracker] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-28T11:54:55.863+05:30  INFO 9968 --- [RentEasy-PG-Hostel-Tracker] [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2026-09-28T11:54:56.537+05:30  INFO 9968 --- [RentEasy-PG-Hostel-Tracker] [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:renteasydb'
+2026-09-28T11:54:56.666+05:30  INFO 9968 --- [RentEasy-PG-Hostel-Tracker] [           main] com.renteasy.RentEasyApplicationTests    : Started RentEasyApplicationTests in 8.243 seconds (process running for 9.615)
+Hibernate: 
+    select
+        count(*) 
+    from
+        rooms r1_0
+2026-09-28T11:54:56.847+05:30  INFO 9968 --- [RentEasy-PG-Hostel-Tracker] [           main] com.renteasy.config.DataInitializer      : Seeding initial PG/Hostel rooms, tenants, and payments...
+Hibernate: 
+    select
+        r1_0.id 
+    from
+        rooms r1_0 
+    where
+        r1_0.room_number=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    insert 
+    into
+        rooms
+        (capacity, current_occupancy, is_occupied, monthly_rent, room_number, room_type, id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    select
+        r1_0.id 
+    from
+        rooms r1_0 
+    where
+        r1_0.room_number=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    insert 
+    into
+        rooms
+        (capacity, current_occupancy, is_occupied, monthly_rent, room_number, room_type, id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    select
+        r1_0.id 
+    from
+        rooms r1_0 
+    where
+        r1_0.room_number=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    insert 
+    into
+        rooms
+        (capacity, current_occupancy, is_occupied, monthly_rent, room_number, room_type, id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    select
+        r1_0.id 
+    from
+        rooms r1_0 
+    where
+        r1_0.room_number=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    insert 
+    into
+        rooms
+        (capacity, current_occupancy, is_occupied, monthly_rent, room_number, room_type, id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    select
+        r1_0.id 
+    from
+        rooms r1_0 
+    where
+        r1_0.room_number=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    insert 
+    into
+        rooms
+        (capacity, current_occupancy, is_occupied, monthly_rent, room_number, room_type, id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    select
+        r1_0.id 
+    from
+        rooms r1_0 
+    where
+        r1_0.room_number=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    insert 
+    into
+        rooms
+        (capacity, current_occupancy, is_occupied, monthly_rent, room_number, room_type, id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.capacity,
+        r1_0.current_occupancy,
+        r1_0.is_occupied,
+        r1_0.monthly_rent,
+        r1_0.room_number,
+        r1_0.room_type 
+    from
+        rooms r1_0 
+    where
+        r1_0.id=?
+Hibernate: 
+    insert 
+    into
+        tenants
+        (email, full_name, monthly_rent, move_in_date, move_out_date, phone, room_id, security_deposit, status, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    update
+        rooms 
+    set
+        capacity=?,
+        current_occupancy=?,
+        is_occupied=?,
+        monthly_rent=?,
+        room_number=?,
+        room_type=? 
+    where
+        id=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.capacity,
+        r1_0.current_occupancy,
+        r1_0.is_occupied,
+        r1_0.monthly_rent,
+        r1_0.room_number,
+        r1_0.room_type 
+    from
+        rooms r1_0 
+    where
+        r1_0.id=?
+Hibernate: 
+    insert 
+    into
+        tenants
+        (email, full_name, monthly_rent, move_in_date, move_out_date, phone, room_id, security_deposit, status, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    update
+        rooms 
+    set
+        capacity=?,
+        current_occupancy=?,
+        is_occupied=?,
+        monthly_rent=?,
+        room_number=?,
+        room_type=? 
+    where
+        id=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.capacity,
+        r1_0.current_occupancy,
+        r1_0.is_occupied,
+        r1_0.monthly_rent,
+        r1_0.room_number,
+        r1_0.room_type 
+    from
+        rooms r1_0 
+    where
+        r1_0.id=?
+Hibernate: 
+    insert 
+    into
+        tenants
+        (email, full_name, monthly_rent, move_in_date, move_out_date, phone, room_id, security_deposit, status, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    update
+        rooms 
+    set
+        capacity=?,
+        current_occupancy=?,
+        is_occupied=?,
+        monthly_rent=?,
+        room_number=?,
+        room_type=? 
+    where
+        id=?
+Hibernate: 
+    select
+        t1_0.id,
+        t1_0.email,
+        t1_0.full_name,
+        t1_0.monthly_rent,
+        t1_0.move_in_date,
+        t1_0.move_out_date,
+        t1_0.phone,
+        r1_0.id,
+        r1_0.capacity,
+        r1_0.current_occupancy,
+        r1_0.is_occupied,
+        r1_0.monthly_rent,
+        r1_0.room_number,
+        r1_0.room_type,
+        t1_0.security_deposit,
+        t1_0.status 
+    from
+        tenants t1_0 
+    left join
+        rooms r1_0 
+            on r1_0.id=t1_0.room_id 
+    where
+        t1_0.id=?
+Hibernate: 
+    select
+        rp1_0.id 
+    from
+        rent_payments rp1_0 
+    where
+        rp1_0.tenant_id=? 
+        and rp1_0.payment_month=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    insert 
+    into
+        rent_payments
+        (amount, notes, payment_date, payment_mode, payment_month, receipt_number, tenant_id, transaction_reference, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    select
+        t1_0.id,
+        t1_0.email,
+        t1_0.full_name,
+        t1_0.monthly_rent,
+        t1_0.move_in_date,
+        t1_0.move_out_date,
+        t1_0.phone,
+        r1_0.id,
+        r1_0.capacity,
+        r1_0.current_occupancy,
+        r1_0.is_occupied,
+        r1_0.monthly_rent,
+        r1_0.room_number,
+        r1_0.room_type,
+        t1_0.security_deposit,
+        t1_0.status 
+    from
+        tenants t1_0 
+    left join
+        rooms r1_0 
+            on r1_0.id=t1_0.room_id 
+    where
+        t1_0.id=?
+Hibernate: 
+    select
+        rp1_0.id 
+    from
+        rent_payments rp1_0 
+    where
+        rp1_0.tenant_id=? 
+        and rp1_0.payment_month=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    insert 
+    into
+        rent_payments
+        (amount, notes, payment_date, payment_mode, payment_month, receipt_number, tenant_id, transaction_reference, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    select
+        t1_0.id,
+        t1_0.email,
+        t1_0.full_name,
+        t1_0.monthly_rent,
+        t1_0.move_in_date,
+        t1_0.move_out_date,
+        t1_0.phone,
+        r1_0.id,
+        r1_0.capacity,
+        r1_0.current_occupancy,
+        r1_0.is_occupied,
+        r1_0.monthly_rent,
+        r1_0.room_number,
+        r1_0.room_type,
+        t1_0.security_deposit,
+        t1_0.status 
+    from
+        tenants t1_0 
+    left join
+        rooms r1_0 
+            on r1_0.id=t1_0.room_id 
+    where
+        t1_0.id=?
+Hibernate: 
+    select
+        rp1_0.id 
+    from
+        rent_payments rp1_0 
+    where
+        rp1_0.tenant_id=? 
+        and rp1_0.payment_month=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    insert 
+    into
+        rent_payments
+        (amount, notes, payment_date, payment_mode, payment_month, receipt_number, tenant_id, transaction_reference, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    select
+        t1_0.id,
+        t1_0.email,
+        t1_0.full_name,
+        t1_0.monthly_rent,
+        t1_0.move_in_date,
+        t1_0.move_out_date,
+        t1_0.phone,
+        r1_0.id,
+        r1_0.capacity,
+        r1_0.current_occupancy,
+        r1_0.is_occupied,
+        r1_0.monthly_rent,
+        r1_0.room_number,
+        r1_0.room_type,
+        t1_0.security_deposit,
+        t1_0.status 
+    from
+        tenants t1_0 
+    left join
+        rooms r1_0 
+            on r1_0.id=t1_0.room_id 
+    where
+        t1_0.id=?
+Hibernate: 
+    select
+        rp1_0.id 
+    from
+        rent_payments rp1_0 
+    where
+        rp1_0.tenant_id=? 
+        and rp1_0.payment_month=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    insert 
+    into
+        rent_payments
+        (amount, notes, payment_date, payment_mode, payment_month, receipt_number, tenant_id, transaction_reference, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-09-28T11:54:57.051+05:30  INFO 9968 --- [RentEasy-PG-Hostel-Tracker] [           main] com.renteasy.config.DataInitializer      : Initial data seeded successfully!
+2026-09-28T11:54:57.051+05:30  INFO 9968 --- [RentEasy-PG-Hostel-Tracker] [           main] com.renteasy.config.DataInitializer      : R101 is fully occupied by Aarav Patel (Unpaid for current month: 2026-09)
+2026-09-28T11:54:57.051+05:30  INFO 9968 --- [RentEasy-PG-Hostel-Tracker] [           main] com.renteasy.config.DataInitializer      : R103 has 1 bed occupied by Rohan Verma (Pending dues: 2 months)
+2026-09-28T11:54:57.051+05:30  INFO 9968 --- [RentEasy-PG-Hostel-Tracker] [           main] com.renteasy.config.DataInitializer      : R201 is fully occupied by Sneha Reddy (All dues cleared!)
+2026-09-28T11:54:57.051+05:30  INFO 9968 --- [RentEasy-PG-Hostel-Tracker] [           main] com.renteasy.config.DataInitializer      : R102, R104, R202 are available for new tenants.
+]]></system-out>
+    <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (C:\Users\tamil\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.19\byte-buddy-agent-1.14.19.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+  </testcase>
+</testsuite>

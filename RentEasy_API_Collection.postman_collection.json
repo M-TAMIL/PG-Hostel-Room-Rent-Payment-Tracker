@@ -1,0 +1,282 @@
+{
+  "info": {
+    "name": "RentEasy - PG & Hostel Rent Payment Tracker API",
+    "description": "Comprehensive Postman collection covering all 5 core features, business rules, edge cases, error cases, and dashboard stats for RentEasy.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Tenant Management",
+      "item": [
+        {
+          "name": "Feature 1: Register Tenant & Assign Room (Success)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Kavitha Sundaram\",\n  \"phone\": \"9876543299\",\n  \"email\": \"kavitha@example.com\",\n  \"moveInDate\": \"2026-01-01\",\n  \"roomId\": 2,\n  \"monthlyRent\": 8500.0,\n  \"securityDeposit\": 17000.0\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/tenants",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "tenants"]
+            }
+          }
+        },
+        {
+          "name": "Rule 1 Edge Case: Register Tenant to OCCUPIED Room (Expect 409 Conflict)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Imposter Tenant\",\n  \"phone\": \"9876541111\",\n  \"email\": \"imposter@example.com\",\n  \"moveInDate\": \"2026-03-01\",\n  \"roomId\": 1,\n  \"monthlyRent\": 8000.0,\n  \"securityDeposit\": 16000.0\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/tenants",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "tenants"]
+            }
+          }
+        },
+        {
+          "name": "Feature 3: View Pending Dues per Tenant (Months Elapsed - Months Paid)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/tenants/1/dues",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "tenants", "1", "dues"]
+            }
+          }
+        },
+        {
+          "name": "Feature 4: List Tenants Unpaid for Current Month",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/tenants/unpaid-current-month",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "tenants", "unpaid-current-month"]
+            }
+          }
+        },
+        {
+          "name": "Feature 5: Vacate Tenant & Free Room",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/tenants/1/vacate",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "tenants", "1", "vacate"]
+            }
+          }
+        },
+        {
+          "name": "List All Tenants (Filter Active)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/tenants?status=ACTIVE",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "tenants"],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "ACTIVE"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Rent Payments",
+      "item": [
+        {
+          "name": "Feature 2: Log Rent Payment for Month (Success)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tenantId\": 1,\n  \"amount\": 8000.0,\n  \"paymentMonth\": \"2026-03\",\n  \"paymentDate\": \"2026-03-05\",\n  \"paymentMode\": \"CASH\",\n  \"transactionReference\": \"CASH-HANDOVER-03\",\n  \"notes\": \"Paid in 500 currency notes\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/payments",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "payments"]
+            }
+          }
+        },
+        {
+          "name": "Duplicate Payment Edge Case: Log Duplicate Payment (Expect 409 Conflict)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tenantId\": 1,\n  \"amount\": 8000.0,\n  \"paymentMonth\": \"2026-03\",\n  \"paymentDate\": \"2026-03-05\",\n  \"paymentMode\": \"UPI\",\n  \"transactionReference\": \"DUPLICATE-TRY\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/payments",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "payments"]
+            }
+          }
+        },
+        {
+          "name": "List All Payments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/payments",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "payments"]
+            }
+          }
+        },
+        {
+          "name": "Get Payments By Tenant ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/payments/tenant/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "payments", "tenant", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Room Management",
+      "item": [
+        {
+          "name": "List All Rooms",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/rooms",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "rooms"]
+            }
+          }
+        },
+        {
+          "name": "List Vacant Rooms Only (?isOccupied=false)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/rooms?isOccupied=false",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "rooms"],
+              "query": [
+                {
+                  "key": "isOccupied",
+                  "value": "false"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Room",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"roomNumber\": \"R301\",\n  \"roomType\": \"DOUBLE\",\n  \"capacity\": 2,\n  \"monthlyRent\": 7000.0\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/rooms",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "rooms"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Dashboard Stats (Idea to Go Further)",
+      "item": [
+        {
+          "name": "Get Dashboard Overview Stats",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/dashboard/stats",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "dashboard", "stats"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

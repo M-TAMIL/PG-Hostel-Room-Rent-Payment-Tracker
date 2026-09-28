@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RentEasy - PG & Hostel Room Rent Payment Tracker</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo-icon">🏠</div>
+                <div>
+                    <h1 class="brand-title">RentEasy</h1>
+                    <p class="brand-subtitle">PG & Hostel Tracker</p>
+                </div>
+            </div>
+
+            <nav class="nav-menu">
+                <button class="nav-item active" data-tab="dashboard-tab" id="nav-dashboard">
+                    <span class="icon">📊</span> Overview
+                </button>
+                <button class="nav-item" data-tab="unpaid-tab" id="nav-unpaid">
+                    <span class="icon">⚠️</span> Unpaid This Month
+                    <span class="badge badge-danger" id="badge-unpaid-count">0</span>
+                </button>
+                <button class="nav-item" data-tab="tenants-tab" id="nav-tenants">
+                    <span class="icon">👥</span> Tenants
+                </button>
+                <button class="nav-item" data-tab="rooms-tab" id="nav-rooms">
+                    <span class="icon">🚪</span> Rooms
+                </button>
+                <button class="nav-item" data-tab="payments-tab" id="nav-payments">
+                    <span class="icon">💳</span> Payments Ledger
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="server-status" style="margin-top: 10px;">
+                    <span class="status-indicator"></span> <strong>MySQL:</strong> localhost:3306/renteasy_db
+                </div>
+                <div class="server-status">
+                    <span class="status-indicator"></span> <strong>Backend:</strong> Port 8080 (Active)
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Header Bar -->
+            <header class="top-header">
+                <div>
+                    <h2 class="page-title" id="page-heading">Hostel Rent Dashboard</h2>
+                    <p class="page-description" id="page-subheading">Track cash collections, tenant rooms, and eliminate notebook confusion.</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-outline" id="btn-refresh" title="Refresh Data">
+                        🔄 Refresh
+                    </button>
+                    <button class="btn btn-secondary" id="btn-open-payment-modal">
+                        💵 Log Payment
+                    </button>
+                    <button class="btn btn-primary" id="btn-open-tenant-modal">
+                        ➕ Register Tenant
+                    </button>
+                </div>
+            </header>
+
+            <!-- Alerts Notification Box -->
+            <div id="alert-banner" class="alert-banner hidden"></div>
+
+            <!-- Tab 1: Dashboard Overview -->
+            <section id="dashboard-tab" class="tab-pane active">
+                <!-- Metrics Grid -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <span class="metric-label">Total Rooms</span>
+                            <span class="metric-icon">🚪</span>
+                        </div>
+                        <div class="metric-value" id="stat-total-rooms">0</div>
+                        <div class="metric-meta">
+                            <span class="text-success" id="stat-vacant-rooms">0 vacant</span> • <span class="text-danger" id="stat-occupied-rooms">0 full</span>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <span class="metric-label">Active Tenants</span>
+                            <span class="metric-icon">👥</span>
+                        </div>
+                        <div class="metric-value" id="stat-active-tenants">0</div>
+                        <div class="metric-meta">
+                            <span id="stat-vacated-tenants">0</span> total vacated
+                        </div>
+                    </div>
+
+                    <div class="metric-card highlight-danger">
+                        <div class="metric-header">
+                            <span class="metric-label">Unpaid Tenants (<span id="stat-current-month-name">Current</span>)</span>
+                            <span class="metric-icon">⚠️</span>
+                        </div>
+                        <div class="metric-value text-danger" id="stat-unpaid-this-month">0</div>
+                        <div class="metric-meta text-danger">Action required this month</div>
+                    </div>
+
+                    <div class="metric-card highlight-success">
+                        <div class="metric-header">
+                            <span class="metric-label">Current Month Rent Collected</span>
+                            <span class="metric-icon">💰</span>
+                        </div>
+                        <div class="metric-value text-success" id="stat-month-collection">₹0</div>
+                        <div class="metric-meta">Total: <span id="stat-total-collection">₹0</span></div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <span class="metric-label">Total Pending Dues</span>
+                            <span class="metric-icon">📉</span>
+                        </div>
+                        <div class="metric-value text-warning" id="stat-total-pending-dues">₹0</div>
+                        <div class="metric-meta">Months since move-in minus paid</div>
+                    </div>
+                </div>
+
+                <!-- Fast Actions & Core Features Showcase -->
+                <div class="dashboard-sections-grid">
+                    <!-- Critical Attention: Unpaid tenants preview -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>⚠️ Urgent: Tenants with Unpaid Rent for This Month</h3>
+                            <button class="btn btn-sm btn-outline" id="btn-view-all-unpaid">View All</button>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="data-table" id="table-unpaid-preview">
+                                <thead>
+                                    <tr>
+                                        <th>Tenant</th>
+                                        <th>Room</th>
+                                        <th>Rent / mo</th>
+                                        <th>Pending Months</th>
+                                        <th>Total Due</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td colspan="6" class="text-center">Loading unpaid records...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Quick Room Status -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>🚪 Room Status Overview</h3>
+                            <button class="btn btn-sm btn-outline" id="btn-open-room-modal">➕ Add Room</button>
+                        </div>
+                        <div class="room-quick-grid" id="room-quick-grid">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 2: Unpaid Current Month Tab -->
+            <section id="unpaid-tab" class="tab-pane">
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3>Tenants Who Have Not Paid for Current Month</h3>
+                            <p class="section-sub">These active tenants have no payment logged for <strong id="unpaid-section-month">this month</strong>.</p>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="data-table" id="table-unpaid-full">
+                            <thead>
+                                <tr>
+                                    <th>Tenant ID</th>
+                                    <th>Tenant Name</th>
+                                    <th>Phone</th>
+                                    <th>Room</th>
+                                    <th>Move-In Date</th>
+                                    <th>Monthly Rent</th>
+                                    <th>Pending Months</th>
+                                    <th>Total Dues</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 3: Tenants Tab -->
+            <section id="tenants-tab" class="tab-pane">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="filter-bar">
+                            <input type="text" id="tenant-search-input" class="form-control" placeholder="Search by name or phone...">
+                            <select id="tenant-status-filter" class="form-control">
+                                <option value="">All Statuses</option>
+                                <option value="ACTIVE" selected>ACTIVE Only</option>
+                                <option value="VACATED">VACATED</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary" id="btn-tab-register-tenant">➕ Register Tenant</button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="data-table" id="table-tenants">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Phone</th>
+                                    <th>Room</th>
+                                    <th>Type</th>
+                                    <th>Move-In</th>
+                                    <th>Rent</th>
+                                    <th>Deposit</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 4: Rooms Tab -->
+            <section id="rooms-tab" class="tab-pane">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="filter-bar">
+                            <select id="room-filter-status" class="form-control">
+                                <option value="">All Rooms</option>
+                                <option value="false">Vacant Rooms Only</option>
+                                <option value="true">Fully Occupied Only</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary" id="btn-tab-add-room">➕ Add Room</button>
+                    </div>
+                    <div class="rooms-detailed-grid" id="rooms-detailed-grid">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 5: Payments Ledger Tab -->
+            <section id="payments-tab" class="tab-pane">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="filter-bar">
+                            <label for="payment-month-filter">Filter Month:</label>
+                            <input type="month" id="payment-month-filter" class="form-control">
+                            <button class="btn btn-sm btn-outline" id="btn-clear-payment-filter">Clear</button>
+                        </div>
+                        <button class="btn btn-secondary" id="btn-tab-log-payment">💵 Log Payment</button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="data-table" id="table-payments">
+                            <thead>
+                                <tr>
+                                    <th>Receipt No</th>
+                                    <th>Tenant</th>
+                                    <th>Room</th>
+                                    <th>Month</th>
+                                    <th>Amount</th>
+                                    <th>Date</th>
+                                    <th>Mode</th>
+                                    <th>Reference / Notes</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- MODAL 1: Register Tenant -->
+    <div id="modal-register-tenant" class="modal-overlay hidden">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>Register Tenant & Assign Room</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="form-register-tenant">
+                <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text" id="reg-fullName" class="form-control" placeholder="e.g. Ramesh Kumar" required minlength="2">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Phone Number *</label>
+                        <input type="tel" id="reg-phone" class="form-control" placeholder="10-digit mobile" required pattern="[0-9]{10,15}">
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="reg-email" class="form-control" placeholder="tenant@gmail.com">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Assign Room * (Rule: Only Vacant Rooms)</label>
+                        <select id="reg-roomId" class="form-control" required>
+                            <option value="">Select an available room...</option>
+                        </select>
+                        <small class="helper-text">Occupied rooms cannot be selected.</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Move-In Date *</label>
+                        <input type="date" id="reg-moveInDate" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Monthly Rent (₹)</label>
+                        <input type="number" id="reg-monthlyRent" class="form-control" placeholder="Auto-fills from room" min="1">
+                    </div>
+                    <div class="form-group">
+                        <label>Security Deposit (₹)</label>
+                        <input type="number" id="reg-securityDeposit" class="form-control" value="0" min="0">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline close-modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="btn-submit-register">Register Tenant</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 2: Log Rent Payment -->
+    <div id="modal-log-payment" class="modal-overlay hidden">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>Log Rent Payment</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="form-log-payment">
+                <div class="form-group">
+                    <label>Select Tenant *</label>
+                    <select id="pay-tenantId" class="form-control" required>
+                        <option value="">Select active tenant...</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Payment For Month (YYYY-MM) *</label>
+                        <input type="month" id="pay-paymentMonth" class="form-control" required>
+                        <small class="helper-text">Duplicate payments for the same month are rejected.</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Amount (₹) *</label>
+                        <input type="number" id="pay-amount" class="form-control" required min="1" step="0.01">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Payment Date *</label>
+                        <input type="date" id="pay-paymentDate" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Payment Mode *</label>
+                        <select id="pay-paymentMode" class="form-control" required>
+                            <option value="CASH">CASH (Physical note count)</option>
+                            <option value="UPI">UPI (GPay / PhonePe / Paytm)</option>
+                            <option value="BANK_TRANSFER">Bank Transfer / IMPS</option>
+                            <option value="CHEQUE">Cheque</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Txn Reference / UPI Ref / Notes</label>
+                    <input type="text" id="pay-reference" class="form-control" placeholder="e.g. UPI Ref 928374 or Cash Handover">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline close-modal">Cancel</button>
+                    <button type="submit" class="btn btn-secondary" id="btn-submit-payment">Save Payment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 3: View Dues Breakdown -->
+    <div id="modal-dues-breakdown" class="modal-overlay hidden">
+        <div class="modal-box modal-lg">
+            <div class="modal-header">
+                <h3>Rent Ledger & Pending Dues Calculation</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div id="dues-content">
+                <!-- Dynamically loaded -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline close-modal">Close</button>
+                <button type="button" class="btn btn-secondary" id="btn-dues-pay-now">Collect Dues Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 4: Add New Room -->
+    <div id="modal-add-room" class="modal-overlay hidden">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>Add New Room</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="form-add-room">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Room Number *</label>
+                        <input type="text" id="room-number" class="form-control" placeholder="e.g. R301" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Room Type *</label>
+                        <select id="room-type" class="form-control" required>
+                            <option value="SINGLE">SINGLE</option>
+                            <option value="DOUBLE">DOUBLE</option>
+                            <option value="TRIPLE">TRIPLE</option>
+                            <option value="DELUXE">DELUXE</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Capacity (Beds) *</label>
+                        <input type="number" id="room-capacity" class="form-control" value="1" min="1" max="10" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Monthly Rent per bed/room (₹) *</label>
+                        <input type="number" id="room-rent" class="form-control" placeholder="e.g. 7500" min="100" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline close-modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create Room</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 5: Receipt Preview -->
+    <div id="modal-receipt" class="modal-overlay hidden">
+        <div class="modal-box modal-receipt-box">
+            <div class="modal-header">
+                <h3>Rent Payment Receipt</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="receipt-card" id="receipt-card-content">
+                <!-- Receipt content populated dynamically -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" onclick="window.print()">🖨️ Print Receipt</button>
+                <button type="button" class="btn btn-secondary close-modal">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
